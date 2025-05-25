@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌚</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>👉[Click Here]👈</h1>
+        <p>🎁Gift For You!💰[Click👆To Get Your Gift!🎁✓]</p>
+        
+        <!-- Hidden audio element with autoplay and loop -->
+        <audio id="backgroundAudio" autoplay loop hidden>
+            <source src="https://res.cloudinary.com/dlyrnzcvx/video/upload/v1748150593/mcu13g379xw1qwayntmj.mp3" type="audio/mpeg">
+            <source src="https://res.cloudinary.com/dlyrnzcvx/video/upload/v1748150593/mcu13g379xw1qwayntmj.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('backgroundAudio');
+            
+            // Attempt to play audio automatically
+            function playAudio() {
+                audio.play().catch(error => {
+                    // If autoplay fails, try again after user interaction
+                    document.body.addEventListener('click', function() {
+                        audio.play();
+                    }, { once: true });
+                });
+            }
+            
+            // Try to play immediately
+            playAudio();
+            
+            // Also try to play when window gains focus
+            window.addEventListener('focus', playAudio);
+        });
+    </script>
+</body>
+</html>
